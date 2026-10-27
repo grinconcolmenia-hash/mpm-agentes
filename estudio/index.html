@@ -155,8 +155,128 @@ dialog::backdrop{background:rgba(40,37,34,.72)}
 .pasos4 b{display:block;margin:6px 0 2px}
 .pasos4 span{font-size:15px;line-height:1.45;display:block}
 
+/* A cómo trabaja */
+.para{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}
+.para div{background:var(--crema);border-radius:20px;padding:20px 22px}
+.para b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--azul);margin-bottom:6px}
+.para p{margin:0;font-size:16px;line-height:1.5}
+.diez{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;counter-reset:p}
+.diez li{counter-increment:p;display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start;background:var(--crema);border:1px solid var(--linea);border-radius:18px;padding:16px 18px 16px 14px}
+.diez li::before{content:counter(p);font-family:"Elsie",serif;font-size:26px;line-height:1;color:var(--azul);width:46px;height:46px;border-radius:50%;background:var(--lav);display:grid;place-items:center;padding-bottom:3px}
+.diez b{display:block;font-size:16.5px;margin:2px 0 3px}
+.diez p{margin:0;font-size:15px;line-height:1.5;color:var(--gris)}
+.diez li.parada{background:#fff;border:2px solid var(--azul)}
+.diez li.parada::before{background:var(--azul);color:#fff}
+.diez .alto{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--azul);border-radius:999px;padding:2px 10px;margin-right:6px;vertical-align:2px}
+.nota{font-size:15px;color:var(--gris);margin:16px 0 0}
+
+/* B habilidades */
+.habs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hab{background:var(--crema);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.hab .paso{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--azul);background:var(--lav);border-radius:999px;padding:3px 10px}
+.hab h3{font-size:20px;font-weight:500;letter-spacing:-.01em}
+.hab h3 small{display:block;font:500 12.5px/1.4 ui-monospace,Consolas,monospace;color:#a39a91;margin-top:2px}
+.hab p{margin:0;font-size:15px;line-height:1.5}
+.hab p i{font-style:normal;font-weight:800;color:var(--gris);font-size:12px;letter-spacing:.06em;text-transform:uppercase;display:block}
+.hab.ayudante{background:#fff;border:1.5px dashed var(--lavanda,#a7acd7)}
+
+/* C el visor por dentro */
+.pantalla{margin:0 0 30px}
+.pantalla a{display:block;border-radius:16px;overflow:hidden;border:1px solid #d6d4d0;box-shadow:0 20px 40px -26px rgba(40,37,34,.5);background:#e9e9e7}
+.pantalla img{width:100%}
+.pantalla figcaption{font-size:15.5px;line-height:1.5;margin:12px 4px 0;max-width:52em}
+.pantalla figcaption b{color:var(--azul)}
+.dos-pant{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pestanas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 32px}
+.pestanas div{background:var(--crema);border-radius:16px;padding:14px 16px;font-size:14.5px;line-height:1.45}
+.pestanas b{display:block;font-size:16px;margin-bottom:2px}
+
+/* D estilos */
+.preguntas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+.preguntas div{background:var(--crema);border-radius:18px;padding:18px}
+.preguntas .q{font-family:"Elsie",serif;font-size:22px;line-height:1.15;color:var(--azul);display:block;margin-bottom:6px}
+.preguntas p{margin:0;font-size:14.5px;line-height:1.45}
+.regla{background:var(--lav);border-radius:18px;padding:16px 20px;font-size:16px;margin:0 0 40px}
+h3.sub3{font-size:24px;font-weight:500;letter-spacing:-.01em;margin:40px 0 4px}
+.sub3+.sub{font-size:16px;margin-bottom:18px}
+.generos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.generos div{background:var(--crema);border-radius:16px;padding:16px 18px}
+.generos b{display:block;font-size:16.5px}
+.generos p{margin:4px 0 0;font-size:14.5px;line-height:1.45}
+.generos small{display:block;margin-top:6px;font-size:12.5px;color:var(--gris)}
+.estilos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.estilo{background:var(--crema);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.estilo>img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--lav)}
+.estilo .sin-img{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(160deg,#e4e7f3,#f2f0ee 75%);color:var(--azul);font-size:14px;line-height:1.45}
+.estilo .sin-img svg{display:block;margin:0 auto 10px}
+.estilo div.t{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
+.estilo h4{margin:0;font-size:17.5px;line-height:1.25;font-weight:800}
+.estilo p{margin:0;font-size:14px;line-height:1.45}
+.estilo p.no{color:var(--gris)}
+.estilo .gasto{align-self:flex-start;font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:3px 9px;background:#e3efe9;color:var(--menta)}
+.estilo .gasto.img{background:#f1e7dc;color:#8a6a48}
+.estilo .gasto.prueba{background:#eeeeeb;color:var(--gris)}
+.estilo .de{font-size:12px;color:#a39a91}
+.transf{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.transf .estilo h4{font-size:16px}
+.reglas3{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.reglas3 div{background:var(--crema);border-radius:16px;padding:16px 18px;font-size:15px;line-height:1.5}
+.reglas3 b{display:block;margin-bottom:4px}
+.reglas3 ul{margin:0;padding-left:18px}
+
+/* E una pieza de principio a fin */
+.caso{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:36px;align-items:start}
+.caso .final{position:sticky;top:80px}
+.caso .final a{display:block;border-radius:12px;overflow:hidden;box-shadow:0 24px 44px -24px rgba(40,37,34,.55)}
+.caso .final p{font-size:14px;color:var(--gris);margin:10px 2px 0}
+.linea-t{list-style:none;margin:0;padding:0;position:relative}
+.linea-t li{position:relative;padding:0 0 26px 34px}
+.linea-t li::before{content:"";position:absolute;left:8px;top:22px;bottom:0;width:2px;background:var(--linea)}
+.linea-t li:last-child::before{display:none}
+.linea-t li::after{content:"";position:absolute;left:2px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--azul);box-shadow:0 0 0 4px var(--papel)}
+.linea-t li.parada::after{background:#fff;border:3px solid var(--azul);width:10px;height:10px}
+.linea-t .k{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--azul)}
+.linea-t h4{margin:2px 0 4px;font-size:19px;font-weight:500}
+.linea-t p{margin:0 0 6px;font-size:15.5px;line-height:1.55}
+.linea-t .cita{background:var(--crema);border-radius:14px;padding:12px 16px;font-size:15px;line-height:1.55;margin:8px 0 4px}
+.linea-t .cita b{color:var(--azul)}
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0 4px}
+.tres span{background:var(--crema);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.4}
+.tres span i{display:block;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--gris)}
+.tres span.si{background:#fff;outline:2px solid var(--azul)}
+.arte-par{display:flex;gap:12px;align-items:flex-start;margin-top:8px}
+.arte-par img{width:150px;border-radius:10px;border:1px solid var(--linea)}
+.arte-par p{font-size:14.5px;color:var(--gris)}
+
+/* F preguntar a Steph */
+.steph{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.steph div{background:var(--crema);border-radius:20px;padding:20px 22px}
+.steph div.con{background:#fff;border:2px solid var(--menta)}
+.steph h3{font-size:19px;margin-bottom:6px}
+.steph p{margin:0 0 8px;font-size:15.5px;line-height:1.5}
+.steph .ej{font-size:14.5px;background:var(--papel);border-radius:12px;padding:10px 12px;margin:8px 0 0;color:var(--gris)}
+
 footer{padding:56px 0 64px;font-size:14.5px;color:var(--gris)}
 
+@media (max-width:1000px){
+  .para,.habs,.generos,.steph{grid-template-columns:1fr 1fr}
+  .estilos{grid-template-columns:repeat(3,1fr)}
+  .transf{grid-template-columns:repeat(3,1fr)}
+  .preguntas,.pestanas{grid-template-columns:1fr 1fr}
+  .caso{grid-template-columns:1fr}.caso .final{position:static;max-width:420px}
+  .dos-pant{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .para,.habs,.generos,.steph,.diez,.reglas3{grid-template-columns:1fr}
+  .estilos,.transf{grid-template-columns:1fr 1fr;gap:10px}
+  .estilo div.t{padding:10px 12px 12px}
+  .estilo h4{font-size:15.5px}
+  .estilo p{font-size:13px}
+  .estilo p.no{display:none}
+  .tres{grid-template-columns:1fr}
+  .pantalla a{margin:0 -18px;border-radius:0;border-left:0;border-right:0}
+  .arte-par img{width:110px}
+}
 @media (max-width:1000px){
   .parrilla{grid-template-columns:repeat(2,1fr)}
   .lineas,.refs{grid-template-columns:1fr}
@@ -183,7 +303,7 @@ footer{padding:56px 0 64px;font-size:14.5px;color:var(--gris)}
   .sub{font-size:16px;margin-bottom:20px}
 
   /* navegación abajo, al alcance del pulgar */
-  .pie-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:20;
+  .pie-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:20;
     background:rgba(255,250,246,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     border-top:1px solid var(--linea);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
   .pie-nav a{display:flex;flex-direction:column;align-items:center;gap:1px;min-height:50px;justify-content:center;
@@ -257,32 +377,198 @@ footer{padding:56px 0 64px;font-size:14.5px;color:var(--gris)}
   <a class="volver" href="../" aria-label="Volver al inicio"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a>
   <img src="marca/logos/mas-paz-mental_horizontal_lavanda.svg" alt="Más Paz Mental">
   <nav aria-label="Secciones">
-    <a href="#parrilla"><span>1</span>Lo que hemos hecho</a>
-    <a href="#lineas"><span>2</span>Las marcas cargadas</a>
-    <a href="#ejemplos"><span>3</span>Ejemplos a imitar</a>
-    <a href="#visor"><span>4</span>Pedir cambios</a>
+    <a href="#como"><span>1</span>Cómo trabaja</a>
+    <a href="#habilidades"><span>2</span>Habilidades</a>
+    <a href="#por-dentro"><span>3</span>El visor</a>
+    <a href="#estilos"><span>4</span>Estilos</a>
+    <a href="#ejemplo"><span>5</span>Una pieza</a>
+    <a href="#steph"><span>6</span>Steph</a>
+    <a href="#parrilla"><span>7</span>Lo hecho</a>
+    <a href="#lineas"><span>8</span>Marcas</a>
+    <a href="#ejemplos"><span>9</span>Ejemplos</a>
+    <a href="#visor"><span>10</span>Pedir cambios</a>
   </nav>
 </div></div>
 
 <div class="portada"><div class="ancho">
   <h1>Estudio MPM: del tema a la <em>pieza.</em></h1>
-  <p>Lo que ya hizo, las marcas que conoce, las piezas reales de las que aprende y cómo se le piden cambios.</p>
+  <p>Qué hace, cómo trabaja con el equipo paso a paso, los estilos que conoce, una pieza contada de principio a fin, lo que ya hizo y cómo se le piden cambios.</p>
 </div></div>
 
+<section id="como"><div class="ancho">
+  <div class="cab"><span class="n">1</span><h2>Qué hace y cómo trabaja</h2></div>
+  <p class="sub">Estudio MPM es un agente de Claude que crea, junto con el equipo creativo de Más Paz Mental, piezas nuevas para redes y las entrega como imágenes listas para subir. Se le habla en español, como a una compañera: no hace falta saber nada técnico.</p>
+  <div class="para">
+    <div><b>Para quién</b><p>El equipo creativo de Más Paz Mental. Trabaja con las ocho líneas de la casa, cada una con sus colores, letras y logo.</p></div>
+    <div><b>Qué entrega</b><p>Carruseles, posts de una lámina, historias 9:16, piezas para LinkedIn y portadas, en PNG. También el texto de la publicación.</p></div>
+    <div><b>Qué no hace</b><p>No publica en redes, no genera personas reales (fuera de Steph IA con su permiso), no gasta en imágenes sin tu sí y no promete nada clínico.</p></div>
+  </div>
+  <h3 class="sub3">Diez pasos y tres paradas</h3>
+  <p class="sub">El agente solo te espera en las tres paradas (en azul). En lo demás avanza solo y te avisa.</p>
+  <ol class="diez">
+    <li><div><b>Lee el pedido</b><p>Tema, línea, fotos, una pieza que viste en otra cuenta. Lo que ya dijiste no te lo vuelve a preguntar.</p></div></li>
+    <li><div><b>Pregunta solo lo que falta</b><p>Máximo cuatro preguntas, juntas y con su recomendación: la línea, para qué es, un momento concreto, fotos o referencia.</p></div></li>
+    <li><div><b>Arma el tablero</b><p>Lo que hay para elegir, cada opción con una lámina real ya publicada, y tres recetas: segura, distinta y loca. Todavía no gasta en imágenes.</p></div></li>
+    <li class="parada"><div><b><span class="alto">Parada 1</span>Eliges</b><p>Eliges, combinas o comentas en el visor: eso ya es el sí. Si ninguna te convence, «ver todos los estilos» y llegan tres recetas nuevas en el estilo que pidas.</p></div></li>
+    <li><div><b>Registra el acuerdo</b><p>La ficha de la receta elegida. Desde aquí manda: si algo se desvía, te avisa en vez de improvisar.</p></div></li>
+    <li class="parada"><div><b><span class="alto">Parada 2</span>Un solo sí al guion</b><p>El texto lámina por lámina con lo que se ve, cuántas imágenes lleva y cuánto cuestan. Un sí para todo.</p></div></li>
+    <li><div><b>Hace el arte</b><p>Primero la portada; la miras y sigue con las demás. El mismo personaje y los mismos objetos en todas las láminas.</p></div></li>
+    <li><div><b>Compone y revisa</b><p>Arma cada lámina con las medidas de la casa, la exporta, mira la fila completa y corrige una vez. Pasa los candados de lenguaje y de marca, y una mirada fresca que no conoce la idea.</p></div></li>
+    <li class="parada"><div><b><span class="alto">Parada 3</span>Apruebas en el visor</b><p>Apruebas cada lámina, marcas lo que cambiarías y dejas comentarios generales. Él aplica lo que marcaste.</p></div></li>
+    <li><div><b>Aprende</b><p>Lo corregido queda anotado. Lo que se repite lo propone como regla para las próximas piezas, siempre preguntando antes.</p></div></li>
+  </ol>
+</div></section>
+
+<section id="habilidades"><div class="ancho">
+  <div class="cab"><span class="n">2</span><h2>Sus habilidades</h2></div>
+  <p class="sub">El trabajo pesado vive en habilidades que entran solas en el momento en que hacen falta. No hay que llamarlas.</p>
+  <div class="habs">
+    <article class="hab"><span class="paso">Pasos 1 a 5</span><h3>Acordar la pieza<small>acordar</small></h3><p><i>Qué hace</i>Lee el pedido, pregunta lo que falta, arma el tablero con tres recetas y convierte la que elijas en el acuerdo.</p><p><i>Cuándo entra</i>Llega un tema o una referencia, eliges o comentas en el tablero, o quieres cambiar lo acordado.</p></article>
+    <article class="hab"><span class="paso">Paso 6</span><h3>El guion<small>guionizar</small></h3><p><i>Qué hace</i>Escribe el texto lámina por lámina con lo que se ve, pasa el candado de lenguaje y te pide un solo sí al texto y a las imágenes.</p><p><i>Cuándo entra</i>Ya hay acuerdo, o traes un texto que Steph aprobó.</p></article>
+    <article class="hab"><span class="paso">Pasos 4 y 7</span><h3>El arte<small>dirigir-arte</small></h3><p><i>Qué hace</i>Encarga las imágenes de la pieza (personaje, objeto, paisaje), dice cuántas y cuánto, espera tu sí y revisa cada imagen que llega.</p><p><i>Cuándo entra</i>Aprobaste el texto, quieres rehacer una imagen o ver una receta dibujada antes de decidir.</p></article>
+    <article class="hab"><span class="paso">Paso 8</span><h3>Componer<small>componer</small></h3><p><i>Qué hace</i>Arma cada lámina con las normas de la casa (tamaño de lectura, aire, una familia de letra), exporta en PNG y mira la fila completa.</p><p><i>Cuándo entra</i>Están el texto y las imágenes, o quieres la pieza en otro formato (por ejemplo, historia 9:16).</p></article>
+    <article class="hab"><span class="paso">Paso 8</span><h3>La revisión<small>revisar</small></h3><p><i>Qué hace</i>Pasa siempre los candados de lenguaje y de marca. La primera vez, además, la mirada fresca.</p><p><i>Cuándo entra</i>Antes de que veas cualquier pieza, y después de cada ajuste.</p></article>
+    <article class="hab"><span class="paso">Pasos 9 y 10</span><h3>Tus ajustes<small>ajustar</small></h3><p><i>Qué hace</i>Convierte cada marca del visor en un cambio concreto, vuelve a exportar y revisar, la marca como atendida y propone reglas.</p><p><i>Cuándo entra</i>Marcaste cambios o aprobaste láminas en el visor.</p></article>
+    <article class="hab"><span class="paso">Cuando haga falta</span><h3>Algo nuevo para repetir<small>nueva-narrativa</small></h3><p><i>Qué hace</i>Guarda en el catálogo, como «en prueba», una forma nueva de contar o una técnica que el equipo aprobó.</p><p><i>Cuándo entra</i>Hicieron algo que les gustó y quieren volver a usarlo.</p></article>
+    <article class="hab"><span class="paso">Cuando lo pidan</span><h3>La nube del equipo<small>publicar</small></h3><p><i>Qué hace</i>Sube la pieza al visor del equipo, la muestra u oculta, y trae lo que cambiaron allá antes de retomarla.</p><p><i>Cuándo entra</i>Quieres que el resto del equipo la vea, la edite por turnos o la descargue.</p></article>
+    <article class="hab"><span class="paso">Opcional</span><h3>Preguntar a Steph<small>preguntar-a-steph</small></h3><p><i>Qué hace</i>Busca qué ha dicho Steph sobre un tema en su material aprobado y devuelve sus ideas con la fuente de cada una.</p><p><i>Cuándo entra</i>Preguntas «¿qué piensa Steph de…?» o el texto le va a atribuir una cita o una idea. Desde acordar o guionizar.</p></article>
+    <article class="hab ayudante"><span class="paso">Ayudante · paso 8</span><h3>La mirada fresca<small>revisor-fuerza</small></h3><p><i>Qué hace</i>Otro agente mira la pieza sin saber cuál era la idea: qué palabra del tema se ve, dónde está el giro, si repite gestos, si hay aire. Dice «se puede mostrar» o «hay que rehacer».</p><p><i>Cuándo entra</i>Lo llama la revisión una sola vez por pieza.</p></article>
+  </div>
+</div></section>
+
+<section id="por-dentro"><div class="ancho">
+  <div class="cab"><span class="n">3</span><h2>El visor por dentro</h2></div>
+  <p class="sub">El visor es una página que el agente abre en tu navegador (casi siempre <b>localhost:8795</b>) y deja abierta toda la sesión. Lo que marcas ahí le llega solo: no hay que copiarlo al chat. Estas capturas son del visor real, con la pieza sobre la culpa al comer.</p>
+  <div class="pestanas">
+    <div><b>Tablero</b>Lo que hay para elegir y las tres recetas.</div>
+    <div><b>Acuerdo</b>La ficha de la receta elegida.</div>
+    <div><b>Carrusel</b>Todas las láminas en fila.</div>
+    <div><b>Tamaño real</b>Lámina por lámina, para aprobar y marcar.</div>
+  </div>
+  <figure class="pantalla"><a href="visor/tablero-opciones.jpg" target="_blank"><img loading="lazy" src="visor/tablero-opciones.jpg" alt="Tablero del visor: opciones para elegir"></a>
+    <figcaption><b>Lo que hay para elegir.</b> Tres respuestas a cada pregunta: quién lo carga, qué le pasa y con qué piel. Cada opción va con una lámina que la marca ya publicó. Marca «Quiero esto» en lo que te guste.</figcaption></figure>
+  <figure class="pantalla"><a href="visor/tablero-recetas.jpg" target="_blank"><img loading="lazy" src="visor/tablero-recetas.jpg" alt="Tablero del visor: tres recetas"></a>
+    <figcaption><b>Tres recetas: segura, distinta y loca.</b> Cada una dice qué palabra del tema se ve, cómo empieza, qué pasa en el giro y cómo termina, y cuál es la pieza publicada más parecida. Eliges una, combinas partes (el portador de una con la transformación de otra) o comentas. Elegir ya es el sí.</figcaption></figure>
+  <figure class="pantalla"><a href="visor/tablero-estilos.jpg" target="_blank"><img loading="lazy" src="visor/tablero-estilos.jpg" alt="Tablero del visor: todos los estilos"></a>
+    <figcaption><b>«Ninguna me convence: ver todos los estilos».</b> Abre el catálogo completo de la casa. Eliges uno y el agente arma tres recetas nuevas en ese estilo, que reemplazan las de arriba. Los que el tema no admite salen en gris con la razón (aquí, «Loco, 100 % IA» no va en un tema sensible).</figcaption></figure>
+  <div class="dos-pant">
+    <figure class="pantalla"><a href="visor/acuerdo.jpg" target="_blank"><img loading="lazy" src="visor/acuerdo.jpg" alt="Pestaña Acuerdo del visor"></a>
+      <figcaption><b>El acuerdo.</b> La receta elegida en limpio: tema, para qué, la escena, la palabra que se ve, el inicio, el giro y el final, cuántas láminas e imágenes. Queda registrado quién lo aprobó.</figcaption></figure>
+    <figure class="pantalla"><a href="visor/aprobar.jpg" target="_blank"><img loading="lazy" src="visor/aprobar.jpg" alt="Pestaña Tamaño real del visor"></a>
+      <figcaption><b>Aprobar y marcar.</b> Apruebas cada lámina o marcas un punto o un recuadro con tu comentario. Hay comentarios para la lámina entera y para toda la pieza, «Mover y editar» para cambiarla a mano y «Descargar las imágenes» al final.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="estilos"><div class="ancho">
+  <div class="cab"><span class="n">4</span><h2>Los estilos gráficos</h2></div>
+  <p class="sub">El agente no rellena plantillas. Cada pieza responde cuatro preguntas, y una <b>receta</b> es una respuesta a cada una. Los estilos del catálogo son respuestas posibles que se combinan; cada uno viene de piezas reales de la marca.</p>
+  <div class="preguntas">
+    <div><span class="q">¿Qué cuenta?</span><p>El género: reflexión, frases para decir, guía, testimonio, anuncio o serie.</p></div>
+    <div><span class="q">¿Quién lo carga?</span><p>El portador: un personaje, un objeto, la letra misma, una foto real, un paisaje…</p></div>
+    <div><span class="q">¿Qué le pasa?</span><p>La transformación: se encoge, se apila, se borra, cambia de clima…</p></div>
+    <div><span class="q">¿Con qué piel?</span><p>El tratamiento y el mood (suave o fuerte). El color lo pone la línea: no se elige.</p></div>
+  </div>
+  <p class="regla"><b>La regla de la casa:</b> la idea sale de una palabra del tema que se puede ver, y de cómo cambia de estado. Un portador principal y una sola transformación por pieza. Cada gesto, una sola vez.</p>
+
+  <h3 class="sub3">Qué cuenta: los géneros</h3>
+  <p class="sub">Cada género tiene su arco, su largo y su manera de cerrar.</p>
+  <div class="generos">
+    <div><b>Reflexión con arco</b><p>Que se reconozca y vea distinto algo que ya vivía.</p><small>7 a 12 láminas · cierra con una pregunta</small></div>
+    <div><b>Frases para decir</b><p>Que tenga las palabras exactas, de la más fácil a la más difícil.</p><small>7 a 17 láminas · elegir una o guardar</small></div>
+    <div><b>Guía de consulta</b><p>Que sepa qué hacer en un momento concreto, y la guarde.</p><small>7 a 14 láminas · guardar o pedir el recurso</small></div>
+    <div><b>Testimonio o confesión</b><p>Que sienta que no es la única. Solo con historias y fotos reales.</p><small>7 a 14 láminas · dice dónde sigue</small></div>
+    <div><b>Anuncio</b><p>Que se entere y no se le olvide.</p><small>1 a 8 láminas · guardar, activar o comentar</small></div>
+    <div><b>Serie</b><p>Que reconozca la familia y espere la siguiente entrega.</p><small>1 a 12 láminas · el de su entrega</small></div>
+  </div>
+
+  <h3 class="sub3">Quién lo carga y con qué piel</h3>
+  <p class="sub">Los estilos del catálogo, cada uno con una lámina real de la marca. La etiqueta dice si gasta en imágenes nuevas (siempre con tu permiso) o se resuelve solo con letra, color y trazos.</p>
+  <div class="estilos">
+<article class="estilo"><img loading="lazy" src="estilos/dibujo-con-personaje.jpg" alt="Ejemplo: Dibujo con personaje"><div class="t"><span class="gasto img">Con imágenes nuevas</span><h4>Dibujo con personaje</h4><p>Un personaje dibujado en línea actúa la idea y cambia de postura cuando cambia el texto.</p><p class="no">No va en historias reales de una persona con nombre.</p><span class="de">«La persona que más cruza tus límites»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/un-objeto-que-se-transforma.jpg" alt="Ejemplo: Un objeto que se transforma"><div class="t"><span class="gasto img">Con imágenes nuevas</span><h4>Un objeto que se transforma</h4><p>Un solo objeto carga la pieza y cambia de estado: se encoge, se desenreda, se borra.</p><p class="no">No dos objetos compitiendo.</p><span class="de">«El ruido no es tu culpa»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/la-letra-que-actua.jpg" alt="Ejemplo: La letra que actúa"><div class="t"><span class="gasto">Sin gastar en imágenes</span><h4>La letra que actúa</h4><p>Sin imagen: el texto mismo hace lo que dice (se apila, sube, se desvanece, se tacha).</p><p class="no">No sirve con texto largo.</p><span class="de">«Frases de apoyo durante una crisis»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/papel-y-marcador.jpg" alt="Ejemplo: Papel y marcador"><div class="t"><span class="gasto">Sin gastar en imágenes</span><h4>Papel y marcador</h4><p>Papel con textura y gestos de lápiz (tira, aro, subrayado, tachón); cada gesto una vez.</p><p class="no">No en guías de crisis: piden calma.</p><span class="de">«Los deberías»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/texto-limpio-fondo-precioso.jpg" alt="Ejemplo: Texto limpio con fondo precioso"><div class="t"><span class="gasto">Sin gastar en imágenes</span><h4>Texto limpio con fondo precioso</h4><p>Poca letra y mucho aire sobre una bruma o un degradado con grano.</p><p class="no">No como molde para todo.</p><span class="de">«Ejemplos de límites»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/texto-ordenado.jpg" alt="Ejemplo: Texto ordenado"><div class="t"><span class="gasto">Sin gastar en imágenes</span><h4>Texto ordenado</h4><p>Mucho contenido con estructura clara: titular a dos tonos, lista y una banda.</p><p class="no">No para una reflexión con arco.</p><span class="de">«Límites en el ambiente laboral»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/objeto-del-telefono.jpg" alt="Ejemplo: Objeto del teléfono"><div class="t"><span class="gasto">Sin gastar en imágenes</span><h4>Objeto del teléfono</h4><p>Una pantalla conocida (chat, nota, trino, reseña) carga la frase, una sola vez.</p><p class="no">No en temas que no pasan por el teléfono.</p><span class="de">«¿Quién tomó esa decisión?»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/esto-frente-a-esto.jpg" alt="Ejemplo: Esto frente a esto"><div class="t"><span class="gasto">Sin gastar en imágenes</span><h4>Esto frente a esto</h4><p>Dos lados con la misma forma: lo que te dicen y lo que tu mente escucha.</p><p class="no">No en temas sin dos lados claros.</p><span class="de">«Subtítulos que la mente pone»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/el-juego.jpg" alt="Ejemplo: El juego"><div class="t"><span class="gasto">Sin gastar en imágenes</span><h4>El juego</h4><p>Una mecánica conocida (puntos, niveles) que avanza y se rompe en el giro.</p><p class="no">Nunca en crisis, duelo o pánico.</p><span class="de">«Formas de farmear aura»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/loco-100-ia.jpg" alt="Ejemplo: Loco, 100 % IA"><div class="t"><span class="gasto img">Con imágenes nuevas</span><h4>Loco, 100 % IA</h4><p>Un formato de internet con contenido serio y escenas o animales que solo están en paz.</p><p class="no">Nunca en temas sensibles.</p><span class="de">«Formas de farmear aura»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/paisaje-como-estado-de-animo.jpg" alt="Ejemplo: Paisaje como estado de ánimo"><div class="t"><span class="gasto img">Con imágenes nuevas</span><h4>Paisaje como estado de ánimo</h4><p>Sin personas: un lugar acompaña la emoción y cambia (se desenfoca, se despeja).</p><p class="no">No en guías con mucho texto.</p><span class="de">«Hay algo que no les he contado»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/la-figurita-que-hace-el-verbo.jpg" alt="Ejemplo: La figurita que hace el verbo"><div class="t"><span class="gasto img">Con imágenes nuevas</span><h4>La figurita que hace el verbo</h4><p>Una figura mínima sin cara, en un paisaje pastel, hace lo que dice el título.</p><p class="no">No en títulos sin un verbo que se pueda actuar.</p><span class="de">«Portadas de la app»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/foto-real.jpg" alt="Ejemplo: Foto real"><div class="t"><span class="gasto prueba">Con fotos reales</span><h4>Foto real</h4><p>Personas y lugares de verdad; el texto vive donde la foto está vacía.</p><p class="no">Nunca se generan otras personas: sin foto, queda pendiente.</p><span class="de">«Decírselo a mis hijas»</span></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/pantalla-real-de-la-app.jpg" alt="Ejemplo: Pantalla real de la app"><div class="t"><span class="gasto prueba">Con capturas reales</span><h4>Pantalla real de la app</h4><p>Un teléfono con una pantalla real de la app que sirve justo para ese momento.</p><p class="no">No en temas que no venden nada. Una pantalla nunca se inventa.</p><span class="de">«Antes de mandar ese mensaje… abre la app»</span></div></article>
+<article class="estilo"><div class="sin-img"><div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 19c0-3.5 3-6 7-6s7 2.5 7 6"/><circle cx="12" cy="7.5" r="3.5"/></svg>Con fotos reales de Steph, de su biblioteca. El ejemplo se ve en el visor del agente.</div></div><div class="t"><span class="gasto prueba">Con fotos reales</span><h4>Steph en foto</h4><p>Steph en foto real, y su gesto hace lo que dice el texto: mira, sostiene, señala, invita.</p><p class="no">Steph no hace de paciente ni de adorno: entra cuando ella habla.</p></div></article>
+<article class="estilo"><div class="sin-img"><div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>Steph generada con su paquete de identidad. El ejemplo se ve en el visor del agente.</div></div><div class="t"><span class="gasto img">Con imágenes nuevas</span><h4>Steph IA</h4><p>Steph en una escena que no se fotografió (su sofá de noche, una terraza), con la misma ropa en toda la pieza.</p><p class="no">Cada imagen necesita un «sí, es ella». Primero, la biblioteca de fotos.</p></div></article>
+<article class="estilo"><div class="sin-img"><div>Sin pieza real todavía. Solo se ofrece como receta loca, avisando.</div></div><div class="t"><span class="gasto prueba">En prueba</span><h4>Viñetas</h4><p>Tres o cuatro cuadros por lámina, como una historieta sin globos.</p></div></article>
+<article class="estilo"><div class="sin-img"><div>Sin pieza real todavía. Solo se ofrece como receta loca, avisando.</div></div><div class="t"><span class="gasto prueba">En prueba</span><h4>La carta o la nota</h4><p>Un papel escrito a mano, doblado, con algo tachado o roto.</p></div></article>
+  </div>
+
+  <h3 class="sub3">Qué le pasa: las transformaciones</h3>
+  <p class="sub">El corazón de cada pieza: lo que cambia de la portada al cierre, y se ve sin leer el texto.</p>
+  <div class="transf">
+<article class="estilo"><img loading="lazy" src="estilos/t-se-encoge.jpg" alt="Se encoge"><div class="t"><h4>Se encoge</h4><p>Lo que tapaba pierde tamaño hasta quedar manejable.</p></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/t-se-apila.jpg" alt="Se apila"><div class="t"><h4>Se apila</h4><p>Cada lámina pone una cosa más encima, hasta que pesa.</p></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/t-se-borra.jpg" alt="Se borra"><div class="t"><h4>Se borra</h4><p>Lo trazado se borra, y en el giro se puede volver a trazar.</p></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/t-se-desvanece.jpg" alt="Se desvanece"><div class="t"><h4>Se desvanece</h4><p>Lo anterior sube, se aclara o se desenfoca.</p></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/t-sube.jpg" alt="Sube"><div class="t"><h4>Sube</h4><p>Un número o un nivel crece, y en el giro se rompe.</p></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/t-se-desenreda.jpg" alt="Se desenreda"><div class="t"><h4>Se desenreda</h4><p>Un enredo se vuelve un hilo ordenado.</p></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/t-cambia-de-clima.jpg" alt="Cambia de clima"><div class="t"><h4>Cambia de clima</h4><p>La luz del lugar cambia con el ánimo: se apaga, se despeja, amanece.</p></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/t-cambia-de-postura.jpg" alt="Cambia de postura"><div class="t"><h4>Cambia de postura</h4><p>El mismo personaje pasa de un gesto a su contrario.</p></div></article>
+<article class="estilo"><img loading="lazy" src="estilos/t-se-invierte.jpg" alt="Se invierte"><div class="t"><h4>Se invierte</h4><p>El fondo y la letra cambian de papel justo en el giro.</p></div></article>
+  </div>
+  <div class="reglas3">
+    <div><b>El mood</b><ul><li><b style="display:inline">Suave:</b> crayola, acuarela, pastel; bordes blandos y mucho aire.</li><li><b style="display:inline">Fuerte:</b> color sólido y contraste; una palabra que pesa.</li></ul></div>
+    <div><b>Lo que el tema descarta</b><ul><li>Tema sensible (crisis, duelo, enfermedad): sin juego, sin 100 % IA y sin mood fuerte.</li><li>Una guía: sin juego ni 100 % IA.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="ejemplo"><div class="ancho">
+  <div class="cab"><span class="n">5</span><h2>Una pieza de principio a fin</h2></div>
+  <p class="sub">«La cuenta que te pasas»: un post de una lámina sobre la culpa después de comer, hecho el 27 de octubre de 2026 con el flujo completo.</p>
+  <div class="caso">
+    <ol class="linea-t">
+      <li><span class="k">Pasos 1 y 2</span><h4>El pedido</h4><p>Tema: la culpa después de comer. Línea Más Paz Mental. El agente lo marcó como <b>tema sensible</b> (alimentación): sin cuerpos, básculas, calorías ni números, y el texto de la publicación dice cuándo buscar ayuda profesional.</p></li>
+      <li><span class="k">Opcional</span><h4>Preguntar a Steph</h4><p>Cinco búsquedas en el material aprobado de Steph sobre comida y culpa: <b>sin respaldo</b>. La pieza siguió en modo creativo y no le atribuye nada a Steph.</p></li>
+      <li><span class="k">Paso 3</span><h4>El tablero</h4><p>Tres recetas, cada una con su palabra que se ve:</p>
+        <div class="tres"><span><i>Segura</i>La servilleta encima · <b>esconder</b></span><span class="si"><i>Distinta</i>La cuenta que te pasas · <b>cobrar</b></span><span><i>Loca</i>No te lo tienes que ganar · <b>ganar</b></span></div></li>
+      <li class="parada"><span class="k">Parada 1</span><h4>La elección</h4><p>Gabriel combinó en el visor: el portador «La cuenta», la transformación «Se tacha» y la piel «Dibujo de línea». Eso ya fue el sí.</p></li>
+      <li><span class="k">Paso 5</span><h4>El acuerdo</h4><div class="cita"><b>Empieza:</b> arriba, un solo renglón, «1 pedazo de torta».<br><b>En el giro:</b> debajo se alarga la cuenta («no debí», «mañana compenso», «qué poca fuerza de voluntad») y una raya la tacha.<br><b>Termina:</b> queda el primer renglón y abajo, a mano, «Total: estaba rica».</div></li>
+      <li class="parada"><span class="k">Parada 2</span><h4>El guion</h4><p>Una lámina con inicio, giro y final, y el remate: «Puedes disfrutarlo sin cobrártelo después». Más el texto de la publicación:</p><div class="cita">Domingo, almuerzo en familia. Aceptas el segundo pedazo de torta y, antes de dejar el tenedor, ya estás haciendo cuentas… ¿Qué te cobras tú después de comer? Escríbelo abajo.</div><p>Un solo sí al texto y a una imagen (cerca de US$0,10).</p></li>
+      <li><span class="k">Paso 7</span><h4>El arte</h4><div class="arte-par"><img loading="lazy" src="piezas/culpa-al-comer-post/arte/ticket.jpg" alt="El ticket dibujado, en blanco"><p>Una sola imagen: el ticket dibujado a línea, en blanco y sin letras. Todo lo escrito se pone encima con letra de verdad, para que se lea bien y se pueda corregir.</p></div></li>
+      <li><span class="k">Paso 8</span><h4>Componer y revisar</h4><p>La mirada fresca dijo «hay que rehacer» por dos detalles de composición (una comilla sobre el borde del ticket y el logo tocándolo). Se corrigieron en una pasada y pasó los candados de lenguaje y de marca.</p></li>
+      <li class="parada"><span class="k">Parada 3</span><h4>En el visor</h4><p>La lámina queda lista para aprobar, marcar o descargar.</p></li>
+    </ol>
+    <div class="final"><a href="piezas/culpa-al-comer-post/export/lamina-01.jpg" target="_blank"><img src="piezas/culpa-al-comer-post/export/lamina-01.jpg" alt="Post final: La cuenta que te pasas"></a><p>El PNG final, 1080 × 1350 (4:5).</p></div>
+  </div>
+</div></section>
+
+<section id="steph"><div class="ancho">
+  <div class="cab"><span class="n">6</span><h2>Preguntar a Steph</h2></div>
+  <p class="sub">Un modo opcional. El agente puede consultar lo que Steph ha dicho en su material aprobado antes de ponerle una idea o una cita en la boca. Si nadie lo pide y el texto no le atribuye nada, no entra.</p>
+  <div class="steph">
+    <div><h3>Cuándo entra</h3><p>Cuando preguntas «¿qué piensa Steph de…?», o cuando el texto le va a atribuir algo: una cita, «Steph dice…», una idea presentada como suya.</p><p class="ej">«¿Qué diría Steph sobre poner límites en el trabajo?»</p></div>
+    <div class="con"><h3>Con respaldo</h3><p>Devuelve sus ideas en pocas líneas, cada una con la fuente de donde sale. Antes de mostrar la pieza, un candado comprueba que cada cita esté tal cual en su fuente: si no, no pasa.</p></div>
+    <div><h3>Sin respaldo</h3><p>«Steph no ha hablado de esto en el material aprobado.» No se le atribuye nada y la pieza sigue en <b>modo creativo</b>: nada se frena. Así pasó con la culpa al comer.</p></div>
+  </div>
+  <p class="nota">Steph puede hablar de cualquier tema en primera persona, con su voz: eso no es atribuirle nada. Lo que no se hace sin respaldo es decir «Steph dice…». En foto va real, de su biblioteca; como Steph IA, solo con su paquete de identidad y un «sí, es ella» en cada imagen.</p>
+</div></section>
+
 <section id="parrilla"><div class="ancho">
-  <div class="cab"><span class="n">1</span><h2>Lo que hemos hecho</h2></div>
+  <div class="cab"><span class="n">7</span><h2>Lo que hemos hecho</h2></div>
   <p class="sub">Así se vería la parrilla de Instagram con las piezas que ya hizo el estudio. Toca una para abrirla como en el celular.</p>
   <div class="ig">
     <div class="ig-perfil">
       <div class="ig-av"><span><img src="marca/logos/mas-paz-mental_apilado_lavanda.png" alt=""></span></div>
       <div>
         <h3>maspazmental</h3>
-        <p class="cifra"><b>10</b> publicaciones</p>
+        <p class="cifra"><b>11</b> publicaciones</p>
         <p class="bio">Piezas hechas por el Estudio MPM. Son pruebas: todavía no están publicadas.</p>
       </div>
     </div>
     <div class="ig-tabs"><span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="3" y="3" width="18" height="18"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>PUBLICACIONES</span></div>
     <div class="parrilla">
+<button class="pz" data-id="culpa-al-comer-post" data-n="1" data-t="La cuenta que te pasas" data-s="Más Paz Mental · Post · 1 lámina" aria-label="Abrir «La cuenta que te pasas»"><img loading="lazy" src="piezas/culpa-al-comer-post/export/lamina-01.jpg" alt=""><span class="velo"><span><b>La cuenta que te pasas</b><small>Más Paz Mental · Post · 1 lámina</small></span></span></button>
 <button class="pz" data-id="limites-trabajo-un-minuto" data-n="8" data-t="Un minuto que mide un minuto" data-s="Más Paz Mental · Guía · 8 láminas" aria-label="Abrir «Un minuto que mide un minuto»"><img loading="lazy" src="piezas/limites-trabajo-un-minuto/export/lamina-01.jpg" alt=""><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 3h10a3 3 0 0 1 3 3v10h-2V6a1 1 0 0 0-1-1H8z"/><rect x="3" y="7" width="14" height="14" rx="3"/></svg><span class="velo"><span><b>Un minuto que mide un minuto</b><small>Más Paz Mental · Guía · 8 láminas</small></span></span></button>
 <button class="pz" data-id="mpm1-ansiedad-3am" data-n="9" data-t="La ventana que se tapa" data-s="Más Paz Mental · Reflexión · 9 láminas" aria-label="Abrir «La ventana que se tapa»"><img loading="lazy" src="piezas/mpm1-ansiedad-3am/export/lamina-01.jpg" alt=""><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 3h10a3 3 0 0 1 3 3v10h-2V6a1 1 0 0 0-1-1H8z"/><rect x="3" y="7" width="14" height="14" rx="3"/></svg><span class="velo"><span><b>La ventana que se tapa</b><small>Más Paz Mental · Reflexión · 9 láminas</small></span></span></button>
 <button class="pz" data-id="mpm1-compararte-en-redes" data-n="9" data-t="El recorte" data-s="Más Paz Mental · Reflexión · 9 láminas" aria-label="Abrir «El recorte»"><img loading="lazy" src="piezas/mpm1-compararte-en-redes/export/lamina-01.jpg" alt=""><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 3h10a3 3 0 0 1 3 3v10h-2V6a1 1 0 0 0-1-1H8z"/><rect x="3" y="7" width="14" height="14" rx="3"/></svg><span class="velo"><span><b>El recorte</b><small>Más Paz Mental · Reflexión · 9 láminas</small></span></span></button>
@@ -298,7 +584,7 @@ footer{padding:56px 0 64px;font-size:14.5px;color:var(--gris)}
 </div></section>
 
 <section id="lineas"><div class="ancho">
-  <div class="cab"><span class="n">2</span><h2>Las marcas que tiene cargadas</h2></div>
+  <div class="cab"><span class="n">8</span><h2>Las marcas que tiene cargadas</h2></div>
   <p class="sub">Ocho líneas, cada una con su paleta, sus letras y su logo. La misma frase cambia de piel según la línea; el color nunca se elige a mano.</p>
   <div class="lineas">
 <article class="ln">
@@ -370,7 +656,7 @@ footer{padding:56px 0 64px;font-size:14.5px;color:var(--gris)}
 </div></section>
 
 <section id="ejemplos"><div class="ancho">
-  <div class="cab"><span class="n">3</span><h2>Los ejemplos que puede imitar</h2></div>
+  <div class="cab"><span class="n">9</span><h2>Los ejemplos que puede imitar</h2></div>
   <p class="sub">Piezas reales de Más Paz Mental que el estudio tiene estudiadas. De cada una sabe qué tomar y qué no copiar. Toca una para verla grande.</p>
   <div class="filtros" role="group" aria-label="Filtrar ejemplos">
 <button data-f="todos" aria-pressed="true">Todos</button>
@@ -406,7 +692,7 @@ footer{padding:56px 0 64px;font-size:14.5px;color:var(--gris)}
 </div></section>
 
 <section id="visor"><div class="ancho">
-  <div class="cab"><span class="n">4</span><h2>Así se piden los cambios</h2></div>
+  <div class="cab"><span class="n">10</span><h2>Así se piden los cambios</h2></div>
   <p class="sub">El visor es una página en el navegador. Se marca sobre la lámina lo que se quiere cambiar y el estudio lo aplica. Esta es una representación: prueba a tocar la lámina para dejar una marca.</p>
 
   <div class="visor" aria-label="Representación del visor">
@@ -461,10 +747,11 @@ footer{padding:56px 0 64px;font-size:14.5px;color:var(--gris)}
 <footer><div class="ancho">Estudio MPM · Más Paz Mental · octubre de 2026. Las piezas del estudio son pruebas: sus textos no han pasado todavía por el equipo.</div></footer>
 
 <nav class="pie-nav" aria-label="Secciones">
-  <a href="#parrilla"><b>1</b>Hecho</a>
-  <a href="#lineas"><b>2</b>Marcas</a>
-  <a href="#ejemplos"><b>3</b>Ejemplos</a>
-  <a href="#visor"><b>4</b>Cambios</a>
+  <a href="#como"><b>1</b>Cómo</a>
+  <a href="#estilos"><b>4</b>Estilos</a>
+  <a href="#ejemplo"><b>5</b>Ejemplo</a>
+  <a href="#parrilla"><b>7</b>Hecho</a>
+  <a href="#visor"><b>10</b>Cambios</a>
 </nav>
 
 <dialog id="dlg" aria-label="Publicación">
