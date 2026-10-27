@@ -283,7 +283,7 @@ var I = {
 var AGENTES = [
 {
   id:'presentaciones', nombre:'Agente de presentaciones', corto:'Presentaciones', que:'Decks en Keynote',
-  zip:'descargas/presentaciones-mpm.zip', forma:'ancho', portadas:[7,3,6],
+  zip:'https://github.com/grinconcolmenia-hash/mpm-agentes/releases/download/presentaciones-2026.10.27/Presentaciones-MPM.zip', forma:'ancho', portadas:[7,3,6],
   titulo:'Presentaciones <em>de la casa</em>',
   hace:[
     'Le cuentas qué presentación necesitas —una propuesta para una empresa, una masterclass, el módulo de un programa, un retiro— y te propone maneras distintas de contarla, cada una inspirada en una presentación real de Más Paz Mental.',
@@ -428,6 +428,7 @@ var listos=window.ZIPS_LISTOS||[];
 var enServidor=/^https?:$/.test(location.protocol);
 var estado={};
 function hayZip(zip){
+  if(/^https?:\/\//.test(zip)) return Promise.resolve(true); /* publicado afuera (un release de GitHub): se da por listo */
   var nombre=zip.split('/').pop();
   if(listos.indexOf(nombre)>-1) return Promise.resolve(true);
   if(!enServidor) return Promise.resolve(false);
@@ -436,7 +437,7 @@ function hayZip(zip){
 }
 [].forEach.call(document.querySelectorAll('.boton-zip'),function(b){
   var caja=b.parentNode, pronto=caja.querySelector('.pronto'), aviso=caja.querySelector('.aviso');
-  hayZip(b.dataset.zip).then(function(ok){pronto.hidden=ok});
+  hayZip(b.dataset.zip).then(function(ok){pronto.hidden=ok;if(ok)b.dataset.listo='1'});
   b.addEventListener('click',function(e){
     if(b.dataset.listo==='1') return;
     e.preventDefault();
