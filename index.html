@@ -75,6 +75,15 @@ h1 em{font-family:"Elsie",serif;font-style:normal;color:var(--azul)}
   .ir span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
   .op p{grid-column:1;margin:0;font-size:14.5px;line-height:1.45}
 }
+/* enlace a la página de los agentes */
+.todos{display:flex;align-items:center;gap:14px;margin-top:14px;padding:14px 16px 14px 20px;border-radius:22px;text-decoration:none;color:inherit;
+  background:var(--lav);border:1px solid rgba(81,98,150,.18);transition:transform .35s var(--muelle),background-color .2s ease;-webkit-tap-highlight-color:transparent}
+.todos:hover{transform:translateY(-2px);background:#dde1f0}
+.todos:active{transform:scale(.985)}
+.todos:focus-visible{outline:3px solid #677cbc;outline-offset:3px}
+.todos span{flex:1;font-size:15px;line-height:1.4;color:var(--gris)}
+.todos b{display:block;font-weight:500;font-size:18px;color:var(--tinta)}
+.todos i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center}
 footer{margin-top:auto;padding-top:22px;font-size:13px;color:var(--gris)}
 
 @media (min-width:820px){
@@ -124,19 +133,21 @@ footer{margin-top:auto;padding-top:22px;font-size:13px;color:var(--gris)}
       </div>
     </a>
 
-    <a class="op noche" href="correos/">
+    <a class="op noche" href="agentes/#presentaciones">
       <div class="escena cartas" aria-hidden="true">
-        <img src="portada/correo-lanzamiento-venta.jpg" alt="">
-        <img src="portada/correo-newsletter.jpg" alt="">
+        <img src="agentes/muestras/p-propuesta/t-01.jpg" alt="">
+        <img src="agentes/muestras/p-masterclass/t-01.jpg" alt="">
       </div>
       <div class="texto">
-        <span class="et">Correos</span>
-        <h2>Los correos</h2>
-        <p>Cinco tipos de correo: el diseño de hoy y tres propuestas nuevas para comparar.</p>
-        <span class="ir"><span>Ver los correos</span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="et">Presentaciones</span>
+        <h2>Las presentaciones</h2>
+        <p>Diez tipos de presentación de la casa, de la propuesta comercial al retiro, lámina por lámina.</p>
+        <span class="ir"><span>Ver las presentaciones</span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
     </a>
   </main>
+
+  <a class="todos" href="agentes/"><span><b>Conoce los agentes y descárgalos</b>Qué hace cada uno, cómo se le pide y sus muestras.</span><i aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
 
   <footer>Más Paz Mental · octubre de 2026. Todo lo que se ve aquí son pruebas: nada está publicado ni se ha enviado.</footer>
 </div>

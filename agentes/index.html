@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f2f0ee">
+<meta name="robots" content="noindex">
+<title>Más Paz Mental · los agentes del equipo</title>
+<link rel="stylesheet" href="../estudio/marca/fuentes/fuentes.css">
+<style>
+:root{--papel:#f2f0ee;--crema:#fffaf6;--tinta:#4c4641;--gris:#7a726b;--azul:#516296;--azul-hondo:#3f4e7c;--lav:#e4e7f3;--linea:#e0dbd5;
+  --noche:#1a1a20;--noche-2:#22222a;--lavanda:#a7acd7;--turquesa:#84d0c2;--tenue:#9a9aae;
+  --muelle:cubic-bezier(.22,1,.36,1);
+  --sombra:0 1px 2px rgba(76,70,65,.06),0 22px 44px -26px rgba(81,98,150,.5);
+  --sombra-alta:0 1px 2px rgba(76,70,65,.06),0 34px 56px -28px rgba(81,98,150,.62)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 17px/1.6 "Avenir LT Pro","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(700px 420px at 0% 0%,rgba(150,164,208,.22),transparent 62%),radial-gradient(560px 380px at 100% 12%,rgba(132,208,194,.16),transparent 60%);
+  background-repeat:no-repeat}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #677cbc;outline-offset:3px}
+.pagina{max-width:1080px;margin:0 auto;padding:calc(22px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+header img{height:22px}
+.volver{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 4px;color:var(--gris);text-decoration:none;font-size:15px}
+.volver:hover{color:var(--azul)}
+h1{font-weight:500;font-size:clamp(34px,9vw,60px);line-height:1.05;letter-spacing:-.025em;margin:26px 0 8px;text-wrap:balance}
+h1 em,h2 em,h3 em{font-family:"Elsie",serif;font-style:normal;color:var(--azul)}
+.bajada{font-size:16px;color:var(--gris);margin:0 0 22px;max-width:32em}
+
+/* ——— el selector ——— */
+.selector{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 8px}
+.sel{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;
+  padding:12px 12px 14px;border-radius:22px;border:1.5px solid var(--linea);background:var(--crema);box-shadow:var(--sombra);
+  transition:transform .35s var(--muelle),border-color .25s ease,background-color .25s ease;-webkit-tap-highlight-color:transparent}
+.sel:hover{transform:translateY(-2px)}
+.sel:active{transform:scale(.98)}
+.sel[aria-selected="true"]{border-color:var(--azul);background:#fff}
+.sel .mini{position:relative;width:100%;height:64px;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#e4e7f3,#f2f0ee 70%)}
+.sel .mini img{position:absolute;top:10px;border-radius:5px;box-shadow:0 2px 3px rgba(40,37,34,.12),0 10px 18px -10px rgba(40,37,34,.45)}
+.sel .mini.ancho img{height:50px;left:50%}
+.sel .mini.ancho img:nth-child(1){transform:translateX(-82%) rotate(-5deg)}
+.sel .mini.ancho img:nth-child(2){transform:translateX(-18%) translateY(4px) rotate(4deg)}
+.sel .mini.ancho img:nth-child(3){display:none}
+.sel .mini.alto img{height:58px;left:50%;top:9px}
+.sel .mini.alto img:nth-child(1){transform:translateX(-120%) rotate(-7deg)}
+.sel .mini.alto img:nth-child(2){transform:translateX(-50%) translateY(-3px)}
+.sel .mini.alto img:nth-child(3){transform:translateX(20%) rotate(7deg)}
+.sel .que{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+.sel b{display:block;font-weight:500;font-size:17px;line-height:1.2;letter-spacing:-.01em}
+.sel .marca{position:absolute;top:10px;right:10px;width:24px;height:24px;border-radius:50%;background:var(--azul);color:#fff;
+  display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s ease,transform .35s var(--muelle)}
+.sel[aria-selected="true"] .marca{opacity:1;transform:none}
+
+/* ——— cada agente ——— */
+.agente{padding-top:30px}
+.agente[hidden]{display:none}
+.entrada{animation:entra .6s var(--muelle)}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}}
+.et{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+.portada{display:grid;gap:22px;align-items:center}
+.portada h2{font-weight:500;font-size:clamp(32px,8vw,52px);line-height:1.06;letter-spacing:-.025em;margin:6px 0 14px;text-wrap:balance}
+.portada p{margin:0 0 12px;font-size:17px}
+.escena{position:relative;height:210px;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,#e4e7f3,#f2f0ee 70%);border:1px solid var(--linea)}
+.escena img{position:absolute;left:50%;border-radius:10px;box-shadow:0 2px 4px rgba(40,37,34,.12),0 18px 30px -14px rgba(40,37,34,.45);transition:transform .6s var(--muelle)}
+.escena.ancho img{width:56%;top:50%}
+.escena.ancho img:nth-child(1){transform:translate(-92%,-66%) rotate(-6deg)}
+.escena.ancho img:nth-child(2){transform:translate(-8%,-34%) rotate(5deg)}
+.escena.ancho img:nth-child(3){transform:translate(-50%,-38%)}
+.escena.alto img{width:31%;top:50%}
+.escena.alto img:nth-child(1){transform:translate(-138%,-46%) rotate(-8deg)}
+.escena.alto img:nth-child(2){transform:translate(38%,-46%) rotate(8deg)}
+.escena.alto img:nth-child(3){transform:translate(-50%,-54%)}
+
+.descargar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:20px}
+.boton-zip{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:0 26px;border-radius:999px;border:0;cursor:pointer;
+  background:var(--azul);color:#fff;font-weight:800;font-size:16px;text-decoration:none;
+  box-shadow:0 1px 2px rgba(40,37,34,.1),0 18px 30px -16px rgba(81,98,150,.9);
+  transition:transform .35s var(--muelle),background-color .2s ease}
+.boton-zip:hover{background:var(--azul-hondo);transform:translateY(-2px)}
+.boton-zip:active{transform:scale(.97)}
+.boton-zip svg{flex:none}
+.pronto{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--azul);background:var(--lav);padding:5px 12px;border-radius:999px}
+.pronto[hidden]{display:none}
+.aviso{flex-basis:100%;margin:0;font-size:15px;color:var(--gris);opacity:0;transform:translateY(-4px);transition:opacity .3s ease,transform .4s var(--muelle)}
+.aviso.ver{opacity:1;transform:none}
+
+.bloque{margin-top:56px}
+.bloque > h3{font-weight:500;font-size:clamp(26px,6.4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:6px 0 6px}
+.bloque > .bajada{margin-bottom:22px}
+
+/* pasos */
+.pasos{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:paso}
+.pasos li{counter-increment:paso;position:relative;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 16px;background:var(--crema);border:1px solid var(--linea);border-radius:20px}
+.pasos li::before{content:counter(paso);font-family:"Elsie",serif;font-size:30px;line-height:1;color:var(--azul);
+  width:44px;height:44px;border-radius:50%;background:var(--lav);display:grid;place-items:center;padding-bottom:3px}
+.pasos b{display:block;font-weight:800;font-size:16.5px;line-height:1.3;margin:2px 0 4px}
+.pasos p{margin:0;font-size:15.5px;color:var(--gris)}
+.pasos .ej{display:inline-block;margin-top:8px;font-size:14.5px;color:var(--azul);background:#fff;border:1px solid var(--lav);padding:4px 12px;border-radius:12px}
+
+/* habilidades */
+.skills{display:grid;gap:12px;grid-template-columns:1fr}
+.skill{background:var(--crema);border:1px solid var(--linea);border-radius:22px;padding:20px 20px 18px;box-shadow:0 1px 2px rgba(76,70,65,.04);
+  display:flex;flex-direction:column;gap:12px;transition:transform .35s var(--muelle),box-shadow .35s ease}
+.skill:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.skill .ico{width:42px;height:42px;border-radius:14px;background:var(--lav);color:var(--azul);display:grid;place-items:center}
+.skill h4{margin:0;font-weight:500;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.skill dl{margin:0;display:grid;gap:10px}
+.skill dt{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--azul)}
+.skill dd{margin:2px 0 0;font-size:15.5px;line-height:1.5}
+
+/* muestras */
+.muestras{display:grid;gap:14px;grid-template-columns:1fr}
+.muestras.alto{grid-template-columns:1fr 1fr}
+.muestra{display:flex;flex-direction:column;text-align:left;padding:0;cursor:pointer;border-radius:22px;overflow:hidden;
+  border:1px solid var(--linea);background:var(--crema);box-shadow:var(--sombra);
+  transition:transform .35s var(--muelle),box-shadow .35s ease;-webkit-tap-highlight-color:transparent}
+.muestra:hover{transform:translateY(-4px);box-shadow:var(--sombra-alta)}
+.muestra:active{transform:scale(.985)}
+.muestra .foto{position:relative;overflow:hidden;background:var(--lav)}
+.muestra .foto img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .6s var(--muelle)}
+.muestras.alto .muestra .foto img{aspect-ratio:4/5}
+.muestra:hover .foto img{transform:scale(1.03)}
+.muestra .cuenta{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:#fff;
+  background:rgba(26,26,32,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:5px 10px;border-radius:999px}
+.muestra .pie{padding:14px 16px 16px;display:flex;flex-direction:column;gap:3px}
+.muestra .tipo{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--azul)}
+.muestra .t{display:block;margin:0;font-weight:500;font-size:19px;line-height:1.2;letter-spacing:-.01em}
+.muestra .linea{font-size:13.5px;color:var(--gris)}
+.muestra .d{display:block;margin:6px 0 0;font-size:14.5px;line-height:1.5;color:var(--gris)}
+.muestras.alto .muestra .pie{padding:12px 12px 14px}
+.muestras.alto .muestra .t{font-size:16.5px}
+.muestras.alto .muestra .d{display:none}
+
+/* cierre con descarga */
+.cierre{margin-top:56px;border-radius:28px;padding:28px 22px;background:var(--noche-2);color:#eeeef3;position:relative;overflow:hidden;
+  background-image:radial-gradient(420px 240px at 10% 0%,rgba(81,98,150,.55),transparent 65%),radial-gradient(360px 220px at 100% 100%,rgba(132,208,194,.18),transparent 60%)}
+.cierre h3{margin:0 0 8px;font-weight:500;font-size:clamp(26px,6.4vw,36px);line-height:1.1;letter-spacing:-.02em}
+.cierre h3 em{font-family:"Elsie",serif;font-style:normal;color:var(--lavanda)}
+.cierre p{margin:0;color:var(--tenue);max-width:34em}
+.cierre .boton-zip{background:#fff;color:var(--noche)}
+.cierre .boton-zip:hover{background:var(--lav)}
+.cierre .pronto{background:rgba(167,172,215,.18);color:var(--lavanda)}
+.cierre .aviso{color:var(--tenue)}
+
+footer{margin-top:44px;font-size:13px;color:var(--gris)}
+
+/* ——— el visor de láminas ——— */
+.visor{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;background:#17171d;color:#eeeef3;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s linear .3s}
+.visor.abierto{opacity:1;visibility:visible;transition:opacity .3s ease}
+.visor .arriba{display:flex;align-items:center;gap:12px;padding:calc(12px + env(safe-area-inset-top)) 12px 8px 18px}
+.visor .titulo{flex:1;min-width:0}
+.visor .titulo small{display:block;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--turquesa)}
+.visor .titulo b{display:block;font-weight:500;font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.visor .num{font-size:14px;color:var(--tenue);font-variant-numeric:tabular-nums;white-space:nowrap}
+.redondo{width:48px;height:48px;flex:none;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;
+  background:rgba(255,255,255,.1);color:#fff;transition:background-color .2s ease,transform .3s var(--muelle)}
+.redondo:hover{background:rgba(255,255,255,.2)}
+.redondo:active{transform:scale(.92)}
+.redondo:disabled{opacity:.25;cursor:default}
+.visor .escenario{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:6px 12px;touch-action:pan-y}
+.visor .escenario img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 30px 60px -30px rgba(0,0,0,.8);
+  transition:opacity .25s ease,transform .35s var(--muelle)}
+.visor .escenario img.cambia{opacity:0;transform:scale(.985)}
+.visor .ant,.visor .sig{position:absolute;top:50%;transform:translateY(-50%)}
+.visor .ant{left:14px}.visor .sig{right:14px}
+.visor .ant:active,.visor .sig:active{transform:translateY(-50%) scale(.92)}
+.visor .tira{display:flex;gap:8px;overflow-x:auto;padding:10px 16px calc(14px + env(safe-area-inset-bottom));scrollbar-width:thin;scroll-behavior:smooth}
+.visor .tira button{flex:none;padding:0;border:2px solid transparent;border-radius:7px;overflow:hidden;cursor:pointer;background:none;opacity:.5;
+  transition:opacity .2s ease,border-color .2s ease}
+.visor .tira button:hover{opacity:.85}
+.visor .tira button[aria-current="true"]{opacity:1;border-color:var(--turquesa)}
+.visor .tira img{height:54px;width:auto}
+
+/* celular: las muestras anchas van en filas, la portada a la izquierda */
+@media (max-width:559px){
+  .muestras:not(.alto){gap:10px}
+  .muestras:not(.alto) .muestra{flex-direction:row;align-items:center;border-radius:18px}
+  .muestras:not(.alto) .muestra .foto{width:46%;flex:none;align-self:stretch;display:flex;align-items:center}
+  .muestras:not(.alto) .muestra .pie{padding:10px 12px;gap:2px;min-width:0}
+  .muestras:not(.alto) .muestra .t{font-size:16px}
+  .muestras:not(.alto) .muestra .linea{font-size:12.5px;line-height:1.35}
+  .muestras:not(.alto) .muestra .d{display:none}
+  .muestras:not(.alto) .muestra .tipo{font-size:10.5px;letter-spacing:.1em}
+  .muestras:not(.alto) .muestra .cuenta{right:6px;bottom:6px;font-size:11px;padding:3px 8px;gap:4px}
+  .muestras:not(.alto) .muestra .pal{display:none}
+}
+@media (max-width:640px){
+  .visor .ant,.visor .sig{display:none}
+}
+@media (min-width:560px){
+  .skills{grid-template-columns:1fr 1fr}
+  .muestras{grid-template-columns:1fr 1fr}
+  .muestras.alto{grid-template-columns:repeat(3,1fr)}
+  .muestras.alto .muestra .d{display:block}
+}
+@media (min-width:820px){
+  .pagina{padding:38px 36px 44px}
+  header img{height:24px}
+  h1{margin-top:58px}
+  .bajada{font-size:19px;margin-bottom:32px}
+  .selector{gap:16px;max-width:760px}
+  .sel{flex-direction:row;align-items:center;gap:16px;padding:12px 18px 12px 12px}
+  .sel .mini{width:132px;height:84px;flex:none}
+  .sel .mini.ancho img{height:60px;top:13px}
+  .sel .mini.alto img{height:70px;top:9px}
+  .sel b{font-size:21px}
+  .sel .marca{top:50%;right:16px;margin-top:-12px}
+  .agente{padding-top:44px}
+  .portada{grid-template-columns:1.05fr 1fr;gap:44px}
+  .portada p{font-size:18.5px}
+  .escena{height:400px}
+  .bloque{margin-top:84px}
+  .pasos{grid-template-columns:1fr 1fr;gap:14px}
+  .pasos li{padding:22px 22px 22px 20px}
+  .skills{grid-template-columns:repeat(3,1fr);gap:14px}
+  .muestras{grid-template-columns:repeat(3,1fr);gap:18px}
+  .muestras.alto{grid-template-columns:repeat(3,1fr)}
+  .cierre{padding:44px 48px;display:grid;grid-template-columns:1.2fr auto;align-items:center;gap:28px}
+  .cierre .descargar{margin-top:0;justify-content:flex-end}
+  .visor .escenario{padding:6px 84px}
+  .visor .tira{justify-content:safe center}
+  .visor .tira img{height:64px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header>
+    <img src="../estudio/marca/logos/mas-paz-mental_horizontal_lavanda.svg" alt="Más Paz Mental">
+    <a class="volver" href="../index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Inicio</a>
+  </header>
+
+  <h1>Los agentes que <em>trabajan</em> con ustedes</h1>
+  <p class="bajada">Dos compañeros nuevos para el equipo. Aquí está qué hace cada uno, cómo pedirle las cosas y lo que ya ha hecho. Al final, lo descargas y lo tienes en tu computador.</p>
+
+  <nav class="selector" role="tablist" aria-label="Elige un agente" id="selector"></nav>
+
+  <main id="agentes"></main>
+
+  <footer>Más Paz Mental · octubre de 2026. Las muestras son pruebas internas hechas por los agentes.</footer>
+</div>
+
+<div class="visor" id="visor" role="dialog" aria-modal="true" aria-labelledby="visor-titulo" aria-hidden="true">
+  <div class="arriba">
+    <div class="titulo"><small id="visor-tipo"></small><b id="visor-titulo"></b></div>
+    <span class="num" id="visor-num" aria-live="polite"></span>
+    <button class="redondo" id="visor-cerrar" aria-label="Cerrar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="escenario" id="visor-escenario">
+    <img id="visor-img" alt="">
+    <button class="redondo ant" id="visor-ant" aria-label="Lámina anterior"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="redondo sig" id="visor-sig" aria-label="Lámina siguiente"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+  <div class="tira" id="visor-tira"></div>
+</div>
+
+<script src="descargas/disponibles.js"></script>
+<script>
+/* ——— lo que dice la página de cada agente ———
+   Muestras: carpeta en muestras/, con NN.jpg (grande) y t-NN.jpg (miniatura). */
+var I = {
+  guion:'<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/>',
+  caminos:'<path d="M12 21v-7M12 14 6 8M12 14l6-6M6 8V4M6 4 4 6M6 4l2 2M18 8V4M18 4l-2 2M18 4l2 2"/>',
+  marca:'<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/><circle cx="12" cy="8" r="1.4"/>',
+  imagen:'<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>',
+  cambios:'<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m14 6 4 4"/>',
+  steph:'<path d="M5 19c0-3.5 3-6 7-6s7 2.5 7 6"/><circle cx="12" cy="7.5" r="3.5"/>',
+  acuerdo:'<path d="M4 6h16v10H8l-4 4z"/><path d="M8 10h8M8 13h5"/>',
+  capas:'<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
+  ojo:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  estrella:'<path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/>',
+  nube:'<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z"/>'
+};
+
+var AGENTES = [
+{
+  id:'presentaciones', nombre:'Agente de presentaciones', corto:'Presentaciones', que:'Decks en Keynote',
+  zip:'descargas/presentaciones-mpm.zip', forma:'ancho', portadas:[7,3,6],
+  titulo:'Presentaciones <em>de la casa</em>',
+  hace:[
+    'Le cuentas qué presentación necesitas —una propuesta para una empresa, una masterclass, el módulo de un programa, un retiro— y te propone maneras distintas de contarla, cada una inspirada en una presentación real de Más Paz Mental.',
+    'Cuando eliges, la arma con la marca de la línea que toca, las fotos de Steph y notas para quien presenta. Te entrega un archivo que se abre con doble clic en Keynote, y también en PowerPoint y Google Slides, listo para editar.'
+  ],
+  pasos:[
+    ['Cuéntale el encargo','Como se lo contarías a una compañera: para quién es, de qué se trata y para cuándo. Si tienes notas, un documento o una presentación vieja, pégalos.','«Necesito la masterclass de noviembre para la Comunidad, sobre descansar sin culpa»'],
+    ['Responde unas pocas preguntas','Te dice qué tipo de presentación es y con qué marca va. Después te hace solo las preguntas de ese tipo, todas juntas y cada una con su recomendación.'],
+    ['Elige cómo contarlo','Te propone tres caminos: uno seguro, uno distinto y uno arriesgado. Eliges uno o mezclas. En las propuestas comerciales eliges entre «la de siempre» y «con ajustes».'],
+    ['Aprueba el guion','Lámina por lámina: qué se ve, qué dice y qué se cuenta en voz alta. En las presentaciones largas te lo muestra por bloques, para revisarlo con calma.'],
+    ['Recibe el archivo','Te entrega la presentación y una hoja con todas las láminas para mirarla de un vistazo. Si hace falta una ilustración nueva, antes te dice cuánto cuesta.'],
+    ['Pide cambios con tus palabras','Lo que corriges lo aplica y lo recuerda para la próxima.','«Cambia la lámina 5», «más corta», «ponle otra foto»']
+  ],
+  skills:[
+    ['caminos','Tres maneras de contarlo','Llega un encargo nuevo y todavía no se ha elegido cómo contarlo.','Tres estructuras distintas (segura, distinta y arriesgada), cada una con la presentación real que la inspiró.'],
+    ['marca','La marca del cliente','La charla o la propuesta es para una empresa con marca propia, o te pasan su web o su manual.','Sus colores, su letra y su logo, listos para convivir con la marca de la casa en la medida que el cliente pida.'],
+    ['guion','El guion y la presentación','Ya elegiste cómo contarlo.','El guion lámina por lámina y el archivo editable con notas, revisado al lado de una presentación real del mismo tipo.'],
+    ['imagen','Imágenes nuevas','Una lámina pide una ilustración que todavía no está en la marca, o quieres rehacer una.','La ilustración con el estilo de la casa, con su costo dicho antes y tu sí.'],
+    ['cambios','Cambios y aprendizaje','La presentación ya existe y quieres ajustarla, o algo de una marca se debe corregir.','La presentación corregida con su hoja nueva, y lo aprendido guardado para la próxima.'],
+    ['steph','Lo que piensa Steph','Preguntas qué piensa Steph de un tema, o una lámina va a presentar una idea o una cita como suya.','Sus ideas y marcos, tomados de su contenido aprobado y con el fragmento de donde salen.']
+  ],
+  muestras:[
+    ['p-propuesta',9,'Propuesta comercial','Propuesta comercial · la de siempre','Línea Conferencias','Las nueve láminas de siempre, con las cifras, los logos y los testimonios reales de la casa.'],
+    ['p-propuesta-ajustes',9,'Propuesta comercial','Propuesta comercial · con ajustes','Conferencias con la marca del cliente','La misma propuesta con el logo del cliente en la portada y el tono ajustado a su problema.'],
+    ['p-portafolio',13,'Portafolio','Portafolio de conferencias','Línea Conferencias','Quién es Steph, su alcance y una ficha por cada conferencia: el menú completo para mostrar.'],
+    ['p-masterclass',30,'Masterclass de Steph','Descansar sin culpa','Comunidad Más Paz Mental','Larga y por pilares, con ejercicios, una herramienta, una respiración y su cierre.'],
+    ['p-invitado',23,'Masterclass de invitado','Dormir para descansar','Comunidad Más Paz Mental','La firma el experto invitado, con la marca de la Comunidad en cada lámina.'],
+    ['p-modulo',27,'Módulo de programa','Del uno a uno al grupo','PsicoLíderes · Módulo 5','El banderín del módulo, las ondas azules, ejercicios en caja y números en sello.'],
+    ['p-reto',32,'Reto de varios días','Tu método · Día 3','PsicoLíderes, variante Reto','Un día de reto que enseña y cierra presentando el programa y su oferta.'],
+    ['p-retiro',26,'Retiro','Volver a elegirse, juntos','ElegirNOS','Más imagen que texto: el lugar, los días, los talleres y quienes acompañan.'],
+    ['p-evento',22,'Charla en un evento','Tu paz también cuenta','Más Paz Mental','Una historia con antes y después, frases en dos colores y preguntas a la sala.'],
+    ['p-interna',18,'Presentación interna','Reporte de redes','Más Paz Mental, variante interna','Un reporte para el equipo, sobrio y claro, con cada cifra en su lugar.']
+  ]
+},
+{
+  id:'contenido', nombre:'Agente de contenido estático', corto:'Contenido estático', que:'Piezas para redes',
+  zip:'descargas/estudio-mpm.zip', forma:'alto', portadas:[0,1,2],
+  titulo:'Piezas para redes, <em>de principio a fin</em>',
+  hace:[
+    'Crea con el equipo creativo piezas nuevas para redes —carruseles, posts, historias, portadas y piezas para LinkedIn— y las entrega como imágenes listas para subir.',
+    'Primero te muestra lo que se puede hacer y tres recetas para elegir. Después escribe el texto con la voz de la casa, dibuja las ilustraciones con el mismo personaje en todas las láminas y compone cada una con las medidas de Más Paz Mental.'
+  ],
+  pasos:[
+    ['Cuéntale el tema','O pega un texto, una foto o una pieza que viste en otra cuenta. Lo que ya dijiste no te lo vuelve a preguntar.','«Quiero un carrusel sobre la ansiedad de las 3 de la mañana»'],
+    ['Elige en el tablero','Te abre un visor con lo que hay para elegir, cada opción con una lámina real al lado, y tres recetas: segura, distinta y loca. Eliges, combinas o comentas ahí mismo.'],
+    ['Un solo sí al texto','Te muestra el texto de cada lámina con lo que se ve, y cuántas imágenes lleva y cuánto cuestan. Un sí para todo.'],
+    ['Mira la portada primero','Hace la portada, la miras, y con eso sigue con las demás. El mismo personaje de principio a fin.'],
+    ['Revisa en el visor','Apruebas cada lámina, marcas lo que cambiarías con un punto o un recuadro y tu comentario, y si quieres mueves y editas a mano.'],
+    ['Descarga las imágenes','Aplica lo que marcaste y bajas los archivos finales desde el mismo visor. Lo que corregiste lo recuerda para la próxima.']
+  ],
+  skills:[
+    ['acuerdo','Acordar la pieza','Llega un tema, una fecha, un texto, unas fotos o una referencia de otra cuenta.','Un tablero en el visor con tres recetas y, con la que elijas, el acuerdo de la pieza.'],
+    ['guion','El guion','Ya hay acuerdo, o traes un texto que Steph aprobó.','El texto lámina por lámina con lo que se ve, y la cuenta de imágenes y su costo.'],
+    ['imagen','El arte','Aprobaste el texto, quieres rehacer una imagen o ver una receta dibujada antes de decidir.','Las ilustraciones de la pieza, con el mismo personaje y los mismos objetos en todas las láminas.'],
+    ['capas','Componer las láminas','Ya están el texto y las imágenes, o quieres la pieza en otro formato.','Cada lámina compuesta con las medidas de la casa y exportada en PNG; también en historia 9:16 si la pides.'],
+    ['ojo','La revisión','Antes de que veas cualquier pieza, siempre.','El lenguaje y la marca revisados, y una mirada fresca que lee la pieza sin conocer la idea.'],
+    ['cambios','Tus ajustes','Marcaste cambios o aprobaste láminas en el visor.','Cada marca convertida en un cambio concreto, atendida y guardada como aprendizaje.'],
+    ['estrella','Algo nuevo para repetir','Hicieron algo que les gustó y quieren volver a usarlo en otras piezas.','La nueva forma de contar, guardada en el catálogo como «en prueba».'],
+    ['nube','La nube del equipo','Quieres que el resto del equipo vea, edite por turnos o descargue una pieza.','La pieza publicada en el visor del equipo, y de vuelta lo que cambiaron allá.'],
+    ['steph','Lo que piensa Steph','Preguntas qué piensa Steph de un tema, o el texto le va a atribuir una idea.','Sus ideas y marcos, tomados de su contenido aprobado y con el fragmento de donde salen.']
+  ],
+  muestras:[
+    ['e-mpm1-limites-con-mama',8,'Carrusel ilustrado','Límites con mamá','Más Paz Mental','Una escena que cambia de tamaño con ella, contada con el personaje de la casa.'],
+    ['e-mpm1-ansiedad-3am',9,'Reflexión','La ventana que se tapa','Más Paz Mental','La ansiedad de madrugada, con una sola ventana que cambia de lámina en lámina.'],
+    ['e-limites-trabajo-un-minuto',8,'Guía práctica','Un minuto que mide un minuto','Más Paz Mental','Cinco pasos para antes de volver a abrir el computador.'],
+    ['e-sinimg-limpio-decir-que-no',8,'Frases para decir','Lo que sobra se despeja','Más Paz Mental','Frases para decir que no sin dar explicaciones, solo con color y letra.'],
+    ['e-sinimg-letra-carga-mental',8,'La letra que actúa','Descansar, de último','Más Paz Mental','La lista que nunca se acaba, contada solo con tipografía.'],
+    ['e-elegirme-ruptura-cafe',9,'Otra línea de la casa','¿Y a mí cuál me gustaba?','Retiro ElegirME','Con la paleta y el tono de ElegirME: volver a encontrarse después de una ruptura.']
+  ]
+}];
+
+var ICO_DESCARGA='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>';
+var ICO_LAMINAS='<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 3h10a3 3 0 0 1 3 3v10h-2V6a1 1 0 0 0-1-1H8z"/><rect x="3" y="7" width="14" height="14" rx="3"/></svg>';
+var dos=function(n){return(n<10?'0':'')+n};
+var ruta=function(c,n,mini){return 'muestras/'+c+'/'+(mini?'t-':'')+dos(n)+'.jpg'};
+var ico=function(k){return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+I[k]+'</svg>'};
+
+function botonZip(a,donde){
+  return '<div class="descargar"><a class="boton-zip" href="'+a.zip+'" download data-zip="'+a.zip+'">'+ICO_DESCARGA+'Descargar el agente (ZIP)</a>'+
+    '<span class="pronto" hidden>Muy pronto</span><p class="aviso" role="status"></p></div>';
+}
+
+/* ——— armar la página ——— */
+var sel=document.getElementById('selector'), cont=document.getElementById('agentes');
+AGENTES.forEach(function(a,i){
+  var tres=a.portadas.map(function(k){return a.muestras[k]});
+  var portadas=tres.map(function(m){return '<img src="'+ruta(m[0],1,true)+'" alt="">'}).join('');
+  sel.insertAdjacentHTML('beforeend',
+    '<button class="sel" role="tab" id="tab-'+a.id+'" aria-controls="ag-'+a.id+'" aria-selected="false" data-id="'+a.id+'">'+
+    '<span class="mini '+a.forma+'" aria-hidden="true">'+portadas+'</span>'+
+    '<span><span class="que">'+a.que+'</span><b>'+a.nombre+'</b></span>'+
+    '<span class="marca" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></span></button>');
+
+  var escena=tres.map(function(m){return '<img src="'+ruta(m[0],1,true)+'" alt="" loading="lazy">'}).join('');
+  var html='<section class="agente" role="tabpanel" id="ag-'+a.id+'" aria-labelledby="tab-'+a.id+'" hidden>'+
+    '<div class="portada"><div><span class="et">'+a.nombre+'</span><h2>'+a.titulo+'</h2>'+
+      a.hace.map(function(p){return '<p>'+p+'</p>'}).join('')+botonZip(a)+'</div>'+
+      '<div class="escena '+a.forma+'" aria-hidden="true">'+escena+'</div></div>'+
+
+    '<div class="bloque"><span class="et">Cómo se usa</span><h3>Cómo <em>pedírselo</em></h3>'+
+      '<p class="bajada">Le hablas como a una compañera del equipo, en tus palabras.</p><ol class="pasos">'+
+      a.pasos.map(function(p){return '<li><div><b>'+p[0]+'</b><p>'+p[1]+'</p>'+(p[2]?'<span class="ej">'+p[2]+'</span>':'')+'</div></li>'}).join('')+'</ol></div>'+
+
+    '<div class="bloque"><span class="et">Sus habilidades</span><h3>Lo que sabe <em>hacer</em></h3>'+
+      '<p class="bajada">Cada habilidad entra sola en el momento en que hace falta. No tienes que llamarla.</p><div class="skills">'+
+      a.skills.map(function(s){return '<article class="skill"><span class="ico">'+ico(s[0])+'</span><h4>'+s[1]+'</h4><dl><div><dt>Cuándo</dt><dd>'+s[2]+'</dd></div><div><dt>Qué entrega</dt><dd>'+s[3]+'</dd></div></dl></article>'}).join('')+'</div></div>'+
+
+    '<div class="bloque"><span class="et">Muestras reales</span><h3>Lo que <em>ya hizo</em></h3>'+
+      '<p class="bajada">Una por cada tipo de trabajo. Toca una para verla lámina por lámina.</p><div class="muestras '+a.forma+'">'+
+      a.muestras.map(function(m,j){return '<button class="muestra" data-ag="'+i+'" data-m="'+j+'" aria-label="Ver «'+m[3]+'», '+m[1]+' láminas">'+
+        '<span class="foto"><img src="'+ruta(m[0],1,true)+'" alt="" loading="lazy"><span class="cuenta">'+ICO_LAMINAS+m[1]+'<span class="pal"> láminas</span></span></span>'+
+        '<span class="pie"><span class="tipo">'+m[2]+'</span><span class="t">'+m[3]+'</span><span class="linea">'+m[4]+'</span><span class="d">'+m[5]+'</span></span></button>'}).join('')+'</div></div>'+
+
+    '<div class="cierre"><div><span class="et" style="color:var(--turquesa)">Llévatelo</span><h3>Tenlo en <em>tu computador</em></h3>'+
+      '<p>Un solo archivo con el agente completo: sus habilidades, la marca y las muestras. Lo descomprimes, abres la carpeta en Claude y empiezas a pedirle.</p></div>'+botonZip(a)+'</div>'+
+    '</section>';
+  cont.insertAdjacentHTML('beforeend',html);
+});
+
+var tabs=[].slice.call(sel.querySelectorAll('.sel'));
+function mostrar(id,desplazar){
+  var a=AGENTES.filter(function(x){return x.id===id})[0]||AGENTES[0];
+  tabs.forEach(function(t){var si=t.dataset.id===a.id;t.setAttribute('aria-selected',si);t.tabIndex=si?0:-1});
+  AGENTES.forEach(function(x){
+    var p=document.getElementById('ag-'+x.id);
+    if(x.id===a.id){p.hidden=false;p.classList.remove('entrada');void p.offsetWidth;p.classList.add('entrada')}else p.hidden=true;
+  });
+  if(location.hash!=='#'+a.id) history.replaceState(null,'','#'+a.id);
+  if(desplazar){var y=sel.getBoundingClientRect().top+scrollY-12;if(scrollY>y)scrollTo({top:y,behavior:'smooth'})}
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){mostrar(t.dataset.id,true)});
+  t.addEventListener('keydown',function(e){
+    var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!k)return;
+    var n=tabs[(i+k+tabs.length)%tabs.length];n.focus();mostrar(n.dataset.id,false);
+  });
+});
+mostrar((location.hash||'').slice(1),false);
+
+/* ——— el botón del ZIP: si el archivo no está, «muy pronto» en vez de romperse ——— */
+var listos=window.ZIPS_LISTOS||[];
+var enServidor=/^https?:$/.test(location.protocol);
+var estado={};
+function hayZip(zip){
+  var nombre=zip.split('/').pop();
+  if(listos.indexOf(nombre)>-1) return Promise.resolve(true);
+  if(!enServidor) return Promise.resolve(false);
+  if(zip in estado) return Promise.resolve(estado[zip]);
+  return fetch(zip,{method:'HEAD',cache:'no-store'}).then(function(r){return estado[zip]=r.ok}).catch(function(){return estado[zip]=false});
+}
+[].forEach.call(document.querySelectorAll('.boton-zip'),function(b){
+  var caja=b.parentNode, pronto=caja.querySelector('.pronto'), aviso=caja.querySelector('.aviso');
+  hayZip(b.dataset.zip).then(function(ok){pronto.hidden=ok});
+  b.addEventListener('click',function(e){
+    if(b.dataset.listo==='1') return;
+    e.preventDefault();
+    hayZip(b.dataset.zip).then(function(ok){
+      if(ok){b.dataset.listo='1';b.click();return}
+      pronto.hidden=false;
+      aviso.textContent='Muy pronto. Lo estamos empacando y aquí mismo vas a poder descargarlo, con este botón.';
+      aviso.classList.add('ver');
+    });
+  });
+});
+
+/* ——— el visor de láminas ——— */
+var V=document.getElementById('visor'), vImg=document.getElementById('visor-img'), vTira=document.getElementById('visor-tira'),
+    vNum=document.getElementById('visor-num'), vAnt=document.getElementById('visor-ant'), vSig=document.getElementById('visor-sig');
+var actual=null, pos=1, origen=null;
+function abrir(ag,m,boton){
+  actual=AGENTES[ag].muestras[m]; origen=boton; pos=1;
+  document.getElementById('visor-tipo').textContent=actual[2];
+  document.getElementById('visor-titulo').textContent=actual[3];
+  vTira.innerHTML='';
+  for(var n=1;n<=actual[1];n++) vTira.insertAdjacentHTML('beforeend','<button data-n="'+n+'" aria-label="Lámina '+n+'"><img src="'+ruta(actual[0],n,true)+'" alt="" loading="lazy"></button>');
+  ir(1,true);
+  V.classList.add('abierto'); V.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  document.getElementById('visor-cerrar').focus();
+}
+function cerrar(){
+  V.classList.remove('abierto'); V.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(origen) origen.focus();
+}
+function ir(n,inmediato){
+  if(!actual||n<1||n>actual[1]) return;
+  pos=n;
+  var src=ruta(actual[0],n);
+  var poner=function(){vImg.src=src;vImg.alt='Lámina '+n+' de «'+actual[3]+'»'};
+  if(inmediato){poner();vImg.classList.remove('cambia')}
+  else{vImg.classList.add('cambia');var pre=new Image();pre.onload=pre.onerror=function(){poner();requestAnimationFrame(function(){vImg.classList.remove('cambia')})};pre.src=src}
+  vNum.textContent=n+' de '+actual[1];
+  vAnt.disabled=n===1; vSig.disabled=n===actual[1];
+  [].forEach.call(vTira.children,function(b){var si=+b.dataset.n===n;b.setAttribute('aria-current',si);if(si)b.scrollIntoView({block:'nearest',inline:'center'})});
+  if(n<actual[1]) new Image().src=ruta(actual[0],n+1);
+}
+cont.addEventListener('click',function(e){var b=e.target.closest('.muestra');if(b)abrir(+b.dataset.ag,+b.dataset.m,b)});
+vTira.addEventListener('click',function(e){var b=e.target.closest('button');if(b)ir(+b.dataset.n)});
+vAnt.addEventListener('click',function(){ir(pos-1)});
+vSig.addEventListener('click',function(){ir(pos+1)});
+document.getElementById('visor-cerrar').addEventListener('click',cerrar);
+document.getElementById('visor-escenario').addEventListener('click',function(e){if(e.target===this)cerrar()});
+document.addEventListener('keydown',function(e){
+  if(!V.classList.contains('abierto'))return;
+  if(e.key==='Escape')cerrar();
+  else if(e.key==='ArrowRight')ir(pos+1);
+  else if(e.key==='ArrowLeft')ir(pos-1);
+  else if(e.key==='Tab'){ /* el foco se queda dentro del visor */
+    var f=[].slice.call(V.querySelectorAll('button:not(:disabled)')).filter(function(x){return x.offsetParent});
+    if(!f.length)return; var i=f.indexOf(document.activeElement);
+    if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()} else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}
+  }
+});
+var x0=null;
+vImg.parentNode.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+vImg.parentNode.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(d)>40)ir(pos+(d<0?1:-1))});
+</script>
+</body>
+</html>
