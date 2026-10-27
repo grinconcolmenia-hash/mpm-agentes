@@ -320,15 +320,15 @@ var AGENTES = [
 },
 {
   id:'contenido', nombre:'Agente de contenido estático', corto:'Contenido estático', que:'Piezas para redes',
-  zip:'descargas/estudio-mpm.zip', forma:'alto', portadas:[0,1,2],
-  titulo:'Piezas para redes, <em>de principio a fin</em>',
+  zip:'https://github.com/grinconcolmenia-hash/mpm-agentes/releases/download/estudio-mpm-2026.10.27/Estudio-MPM.zip', forma:'alto', portadas:[0,1,2],
+  titulo:'Piezas para redes, <em>de principio a fin</em>', guia:'../estudio/#como',
   hace:[
     'Crea con el equipo creativo piezas nuevas para redes —carruseles, posts, historias, portadas y piezas para LinkedIn— y las entrega como imágenes listas para subir.',
     'Primero te muestra lo que se puede hacer y tres recetas para elegir. Después escribe el texto con la voz de la casa, dibuja las ilustraciones con el mismo personaje en todas las láminas y compone cada una con las medidas de Más Paz Mental.'
   ],
   pasos:[
     ['Cuéntale el tema','O pega un texto, una foto o una pieza que viste en otra cuenta. Lo que ya dijiste no te lo vuelve a preguntar.','«Quiero un carrusel sobre la ansiedad de las 3 de la mañana»'],
-    ['Elige en el tablero','Te abre un visor con lo que hay para elegir, cada opción con una lámina real al lado, y tres recetas: segura, distinta y loca. Eliges, combinas o comentas ahí mismo.'],
+    ['Elige en el tablero','Te abre un visor con lo que hay para elegir, cada opción con una lámina real al lado, y tres recetas: segura, distinta y loca. Eliges, combinas o comentas ahí mismo. Si ninguna te convence, «ver todos los estilos» y te arma tres nuevas en el estilo que elijas.'],
     ['Un solo sí al texto','Te muestra el texto de cada lámina con lo que se ve, y cuántas imágenes lleva y cuánto cuestan. Un sí para todo.'],
     ['Mira la portada primero','Hace la portada, la miras, y con eso sigue con las demás. El mismo personaje de principio a fin.'],
     ['Revisa en el visor','Apruebas cada lámina, marcas lo que cambiarías con un punto o un recuadro y tu comentario, y si quieres mueves y editas a mano.'],
@@ -343,9 +343,10 @@ var AGENTES = [
     ['cambios','Tus ajustes','Marcaste cambios o aprobaste láminas en el visor.','Cada marca convertida en un cambio concreto, atendida y guardada como aprendizaje.'],
     ['estrella','Algo nuevo para repetir','Hicieron algo que les gustó y quieren volver a usarlo en otras piezas.','La nueva forma de contar, guardada en el catálogo como «en prueba».'],
     ['nube','La nube del equipo','Quieres que el resto del equipo vea, edite por turnos o descargue una pieza.','La pieza publicada en el visor del equipo, y de vuelta lo que cambiaron allá.'],
-    ['steph','Lo que piensa Steph','Preguntas qué piensa Steph de un tema, o el texto le va a atribuir una idea.','Sus ideas y marcos, tomados de su contenido aprobado y con el fragmento de donde salen.']
+    ['steph','Lo que piensa Steph (opcional)','Preguntas qué piensa Steph de un tema, o el texto le va a atribuir una cita o una idea.','Sus ideas con la fuente de cada una. Si no hay respaldo, no se le atribuye nada y la pieza sigue en modo creativo.']
   ],
   muestras:[
+    ['e-culpa-al-comer-post',1,'Post de una lámina','La cuenta que te pasas','Más Paz Mental','La culpa después de comer: un ticket que se tacha. Hecha con el flujo completo.'],
     ['e-mpm1-limites-con-mama',8,'Carrusel ilustrado','Límites con mamá','Más Paz Mental','Una escena que cambia de tamaño con ella, contada con el personaje de la casa.'],
     ['e-mpm1-ansiedad-3am',9,'Reflexión','La ventana que se tapa','Más Paz Mental','La ansiedad de madrugada, con una sola ventana que cambia de lámina en lámina.'],
     ['e-limites-trabajo-un-minuto',8,'Guía práctica','Un minuto que mide un minuto','Más Paz Mental','Cinco pasos para antes de volver a abrir el computador.'],
@@ -380,7 +381,7 @@ AGENTES.forEach(function(a,i){
   var escena=tres.map(function(m){return '<img src="'+ruta(m[0],1,true)+'" alt="" loading="lazy">'}).join('');
   var html='<section class="agente" role="tabpanel" id="ag-'+a.id+'" aria-labelledby="tab-'+a.id+'" hidden>'+
     '<div class="portada"><div><span class="et">'+a.nombre+'</span><h2>'+a.titulo+'</h2>'+
-      a.hace.map(function(p){return '<p>'+p+'</p>'}).join('')+botonZip(a)+'</div>'+
+      a.hace.map(function(p){return '<p>'+p+'</p>'}).join('')+(a.guia?'<p><a href="'+a.guia+'" style="color:var(--azul);font-weight:800">Cómo funciona por dentro: pasos, estilos y un ejemplo completo →</a></p>':'')+botonZip(a)+'</div>'+
       '<div class="escena '+a.forma+'" aria-hidden="true">'+escena+'</div></div>'+
 
     '<div class="bloque"><span class="et">Cómo se usa</span><h3>Cómo <em>pedírselo</em></h3>'+

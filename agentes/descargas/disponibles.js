@@ -3,5 +3,5 @@
    así el botón funciona también al abrir la página con doble clic. Publicada en un servidor, la página lo detecta sola. */
 window.ZIPS_LISTOS = [
   // "presentaciones-mpm.zip",
-  // "estudio-mpm.zip",
+  "Estudio-MPM.zip", // en Releases del repo: pasa de 100 MB
 ];
